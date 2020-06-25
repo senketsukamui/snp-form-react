@@ -145,6 +145,6 @@ strong {
 
 @font-face {
   font-family: "vinnytsia";
-  src: (url("../../assets/fonts/Vinnytsia.ttf"));
+  src: (url("../../assets/fonts/Vinnytsia.woff"));
   font-weight: 400;
 }
