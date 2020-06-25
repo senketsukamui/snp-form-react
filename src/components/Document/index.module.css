@@ -1,9 +1,19 @@
 .document {
   width: 60%;
+  background-color: #F4F1BB;
+  font-family: "vinnytsia";
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .title {
   font-size: 2rem;
-  font-family: "vinnytsia";
   text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.form_field {
+  font-size: 1.5rem;
+  padding-bottom: 1.2rem;
 }
