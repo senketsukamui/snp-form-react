@@ -1,8 +1,15 @@
 import React from "react";
-import "./index.css";
+import styles from "./index.module.css";
+import Document from "components/Document";
+import Form from "components/Form";
 
 const Main = () => {
-  return <div>Test</div>;
+  return (
+    <div className={styles.main}>
+      <Form />
+      <Document />
+    </div>
+  );
 };
 
 export default React.memo(Main);
