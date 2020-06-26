@@ -1,7 +1,42 @@
 import React from "react";
 import styles from "./index.module.css";
-
+import Input from "components/Input";
+import { INPUT_TYPES, INPUT_NAMES } from "utils/constants";
 const Form = () => {
+  const [inputState, changeInputState] = React.useState([
+    {
+      value: "",
+      type: INPUT_TYPES.TEXT,
+      name: "name",
+    },
+    { value: "", name: "birthDate", type: INPUT_TYPES.TEXT },
+    { value: "", name: "education", type: INPUT_TYPES.TEXT },
+    { value: "", name: "workPlace", type: INPUT_TYPES.TEXT },
+    { value: "", name: "experience", type: INPUT_TYPES.TEXT },
+    { value: "", name: "skills", type: INPUT_TYPES.TEXT },
+    { value: "", name: "aboutYou", type: INPUT_TYPES.TEXT },
+    { value: "", name: "englishLevel", type: INPUT_TYPES.TEXT },
+    { value: "", name: "wantToLearn", type: INPUT_TYPES.TEXT },
+    { value: "", name: "contacts", type: INPUT_TYPES.TEXT },
+  ]);
+
+  const changeGlobalInput = (field, value) => {
+    
+  }
+
+  const renderedInputs = inputState.map((e) => (
+    <>
+      <p className={styles.input_title}>{INPUT_NAMES[e.name]}</p>
+      <Input
+        type={e.type}
+        className={styles.input}
+        onInputChange={changeInputState}
+        value={e.value}
+        field={e.name}
+      />
+    </>
+  ));
+
   return (
     <form className={styles.form} action="novalidate">
       <div className={styles.title}>Форма для стажировки</div>
@@ -9,30 +44,7 @@ const Form = () => {
         Пожалуйста, заполни как можно подробнее данную заявку. Если у тебя есть
         готовое резюме, укажи на него ссылку.
       </p>
-      <p className={styles.input_title}>ФИО</p>
-      <input type="text" className={styles.input} />
-      <p className={styles.input_title}>Дата рождения</p>
-      <input type="text" className={styles.input} />
-      <p className={styles.input_title}>Образование</p>
-      <input type="text" className={styles.input} />
-      <p className={styles.input_title}>Место работы</p>
-      <input type="text" className={styles.input} />
-      <p className={styles.input_title}>Опыт в разработке</p>
-      <input type="text" className={styles.input} />
-      <p className={styles.input_title}>Технологии/умения</p>
-      <input type="text" className={styles.input} />
-      <p className={styles.input_title}>О себе</p>
-      <input type="text" className={styles.input} />
-      <p className={styles.input_title}>Уровень владения английским</p>
-      <input type="text" className={styles.input} />
-      <p className={styles.input_title}>Опыт в разработке</p>
-      <input type="text" className={styles.input} />
-      <p className={styles.input_title}>Что хочешь изучать</p>
-      <input type="text" className={styles.input} />
-      <p className={styles.input_title}>Контакты</p>
-      <input type="text" className={styles.input} />
-      <p className={styles.input_title}>Введите ФИО</p>
-      <input type="text" className={styles.input} />
+      {renderedInputs}
     </form>
   );
 };
