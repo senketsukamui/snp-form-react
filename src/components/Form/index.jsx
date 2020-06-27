@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./index.module.css";
 import Input from "components/Input";
-import { INPUT_TYPES, INPUT_NAMES } from "utils/constants";
+import { INPUT_INFO, INPUT_TYPES } from "utils/constants";
 const Form = () => {
   const [inputState, changeInputState] = React.useState([
     {
@@ -20,19 +20,23 @@ const Form = () => {
     { value: "", name: "contacts", type: INPUT_TYPES.TEXT },
   ]);
 
-  const changeGlobalInput = (field, value) => {
-    
-  }
+  const handleInputChange = (e) => {
+    const stateCopy = [...inputState];
+    stateCopy[e.target.dataset.id].value = e.target.value;
+    changeInputState(stateCopy);
+  };
 
-  const renderedInputs = inputState.map((e) => (
+  const renderedInputs = inputState.map((e, index) => (
     <>
-      <p className={styles.input_title}>{INPUT_NAMES[e.name]}</p>
+      <p className={styles.input_title}>{INPUT_INFO[e.name].name}</p>
       <Input
         type={e.type}
         className={styles.input}
-        onInputChange={changeInputState}
+        onChange={handleInputChange}
+        placeholder={INPUT_INFO[e.name].placeholder}
         value={e.value}
         field={e.name}
+        data-id={index}
       />
     </>
   ));

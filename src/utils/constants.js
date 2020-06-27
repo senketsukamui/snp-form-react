@@ -6,15 +6,31 @@ export const INPUT_TYPES = {
   NUMBER: "number",
 };
 
-export const INPUT_NAMES = {
-  name: "ФИО",
-  birthDate: "Дата рождения",
-  education: "Образование",
-  workPlace: "Место работы",
-  experience: "Опыт в разработке",
-  skills: "Технологии/умения",
-  aboutYou: "О себе",
-  englishLevel: "Уровень владения английским",
-  wantToLearn: "Что хочешь изучать",
-  contacts: "Контакты",
+export const INPUT_INFO = {
+  name: { name: "ФИО", placeholder: "Введите ваше ФИО" },
+  birthDate: {
+    name: "Дата рождения",
+    placeholder: "Введите вашу дату рождения",
+  },
+  education: { name: "Образование", placeholder: "Введите ваше образование" },
+  workPlace: { name: "Место работы", placeholder: "Введите ваше место работы" },
+  experience: {
+    name: "Опыт в разработке",
+    placeholder: "Укажите ваш опыт в разработке",
+  },
+  skills: {
+    name: "Технологии/умения",
+    placeholder: "Введите ваши технологии и умения",
+  },
+  aboutYou: { name: "О себе", placeholder: "Расскажите о себе" },
+  englishLevel: {
+    name: "Уровень владения английским",
+    placeholder: "Укажите ваш уровень владения английским",
+  },
+  wantToLearn: {
+    name: "Что хочешь изучать",
+    placeholder: "Расскажите, что вы хотите изучать",
+  },
+  contacts: { name: "Контакты", placeholder: "Введите ваши контакты" },
 };
+
