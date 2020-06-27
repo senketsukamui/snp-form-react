@@ -1,8 +1,14 @@
 import React from "react";
 import styles from "./index.module.css";
 import Input from "components/Input";
-import { INPUT_INFO, INPUT_TYPES } from "utils/constants";
+import { INPUT_INFO } from "utils/mock";
+import { INPUT_TYPES } from "utils/constants";
+import { useDispatch } from "react-redux";
+import { changeFormField } from "store/actions/form";
+
 const Form = () => {
+  const dispatch = useDispatch();
+
   const [inputState, changeInputState] = React.useState([
     {
       value: "",
@@ -12,7 +18,7 @@ const Form = () => {
     { value: "", name: "birthDate", type: INPUT_TYPES.TEXT },
     { value: "", name: "education", type: INPUT_TYPES.TEXT },
     { value: "", name: "workPlace", type: INPUT_TYPES.TEXT },
-    { value: "", name: "experience", type: INPUT_TYPES.TEXT },
+    { value: "", name: "experience", type: INPUT_TYPES.SELECT },
     { value: "", name: "skills", type: INPUT_TYPES.TEXT },
     { value: "", name: "aboutYou", type: INPUT_TYPES.TEXT },
     { value: "", name: "englishLevel", type: INPUT_TYPES.TEXT },
@@ -20,11 +26,20 @@ const Form = () => {
     { value: "", name: "contacts", type: INPUT_TYPES.TEXT },
   ]);
 
-  const handleInputChange = (e) => {
-    const stateCopy = [...inputState];
-    stateCopy[e.target.dataset.id].value = e.target.value;
-    changeInputState(stateCopy);
-  };
+  const handleInputChange = React.useCallback(
+    (e) => {
+      const stateCopy = [...inputState];
+      stateCopy[e.target.dataset.id].value = e.target.value;
+      changeInputState(stateCopy);
+      dispatch(
+        changeFormField({
+          value: e.target.value,
+          field: stateCopy[e.target.dataset.id].name,
+        })
+      );
+    },
+    [dispatch]
+  );
 
   const renderedInputs = inputState.map((e, index) => (
     <>
