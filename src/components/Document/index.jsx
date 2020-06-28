@@ -21,20 +21,23 @@ const Document = () => {
 
   return (
     <div className={styles.document}>
-      <h1 className={styles.title}>Стажировка в Salt & Pepper</h1>
-      <div className={styles.form_field}>ФИО стажёра: {name}</div>
+      <div className={styles.title_block}>
+        <h1 className={styles.title}>Стажировка в Salt & Pepper</h1>
+      </div>
+      <div className={styles.profile_image}></div>
+      <div className={styles.form_field}>ФИО: {name}</div>
       <div className={styles.form_field}>Дата рождения: {birthDate} </div>
       <div className={styles.form_field}>Образование: {education} </div>
-      <div className={styles.form_field}>Место работы:{workPlace} </div>
-      <div className={styles.form_field}>Опыт в разработке:{experience}</div>
-      <div className={styles.form_field}>Технологии/умения:{skills}</div>
-      <div className={styles.form_field}>О себе:{aboutYou}</div>
+      <div className={styles.form_field}>Моё место работы: {workPlace} </div>
+      <div className={styles.form_field}>Опыт в разработке: {experience}</div>
+      <div className={styles.form_field}>Мои умения: {skills}</div>
+      <div className={styles.form_field}>Обо мне:{aboutYou}</div>
       <div className={styles.form_field}>
-        Уровень владения английским:{englishLevel}
+        Мой уровень владения английским: {englishLevel}
       </div>
-      <div className={styles.form_field}>Что хочешь изучать:{wantToLearn}</div>
-      <div className={styles.form_field}>Ваша почта:{email}</div>
-      <div className={styles.form_field}>Контакты:{contacts}</div>
+      <div className={styles.form_field}>Хочу изучать: {wantToLearn}</div>
+      <div className={styles.form_field}>Моя почта: {email}</div>
+      <div className={styles.form_field}>Мои контакты: {contacts}</div>
     </div>
   );
 };

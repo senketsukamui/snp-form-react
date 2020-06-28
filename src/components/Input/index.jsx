@@ -25,7 +25,7 @@ const Input = (props) => {
         {validateTypedDate(props.value) ? (
           ""
         ) : (
-          <span>{VALIDATION_ERRORS.DATE_ERROR}</span>
+          <div className={styles.error}>{VALIDATION_ERRORS.DATE_ERROR}</div>
         )}
       </>
     );
@@ -42,7 +42,7 @@ const Input = (props) => {
         {validateTypedEmail(props.value) ? (
           ""
         ) : (
-          <span>{VALIDATION_ERRORS.EMAIL_ERROR}</span>
+          <div className={styles.error}>{VALIDATION_ERRORS.EMAIL_ERROR}</div>
         )}
       </>
     );
