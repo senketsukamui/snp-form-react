@@ -4,27 +4,36 @@ import Input from "components/Input";
 import { INPUT_INFO } from "utils/mock";
 import { INPUT_TYPES } from "utils/constants";
 import { useDispatch } from "react-redux";
-import { changeFormField } from "store/actions/form";
+import { changeFormField, setFormFields } from "store/actions/form";
 
 const Form = () => {
   const dispatch = useDispatch();
 
-  const [inputState, changeInputState] = React.useState([
-    {
-      value: "",
-      type: INPUT_TYPES.TEXT,
-      name: "name",
-    },
-    { value: "", name: "birthDate", type: INPUT_TYPES.TEXT },
-    { value: "", name: "education", type: INPUT_TYPES.TEXT },
-    { value: "", name: "workPlace", type: INPUT_TYPES.TEXT },
-    { value: "", name: "experience", type: INPUT_TYPES.SELECT },
-    { value: "", name: "skills", type: INPUT_TYPES.TEXT },
-    { value: "", name: "aboutYou", type: INPUT_TYPES.TEXT },
-    { value: "", name: "englishLevel", type: INPUT_TYPES.TEXT },
-    { value: "", name: "wantToLearn", type: INPUT_TYPES.TEXT },
-    { value: "", name: "contacts", type: INPUT_TYPES.TEXT },
-  ]);
+  const getLocalStorageState = React.useCallback(() => {
+    const localStorageState = JSON.parse(localStorage.getItem("formFields"));
+    dispatch(setFormFields({ newState: localStorageState }));
+    return localStorageState;
+  }, [dispatch]);
+
+  const [inputState, changeInputState] = React.useState(
+    getLocalStorageState() || [
+      {
+        value: "",
+        type: INPUT_TYPES.NAME_INPUT,
+        name: "name",
+      },
+      { value: "", name: "birthDate", type: INPUT_TYPES.STRING_DATE },
+      { value: "", name: "education", type: INPUT_TYPES.TEXT },
+      { value: "", name: "workPlace", type: INPUT_TYPES.TEXT },
+      { value: "", name: "experience", type: INPUT_TYPES.SELECT },
+      { value: "", name: "skills", type: INPUT_TYPES.TEXT },
+      { value: "", name: "aboutYou", type: INPUT_TYPES.TEXT },
+      { value: "", name: "englishLevel", type: INPUT_TYPES.TEXT },
+      { value: "", name: "wantToLearn", type: INPUT_TYPES.TEXT },
+      { value: "", name: "email", type: INPUT_TYPES.EMAIL },
+      { value: "", name: "contacts", type: INPUT_TYPES.TEXT },
+    ]
+  );
 
   const handleInputChange = React.useCallback(
     (e) => {
@@ -37,8 +46,9 @@ const Form = () => {
           field: stateCopy[e.target.dataset.id].name,
         })
       );
+      localStorage.setItem("formFields", JSON.stringify(stateCopy));
     },
-    [dispatch]
+    [dispatch, inputState]
   );
 
   const renderedInputs = inputState.map((e, index) => (

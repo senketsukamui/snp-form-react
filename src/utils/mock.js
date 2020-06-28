@@ -2,7 +2,7 @@ export const INPUT_INFO = {
   name: { name: "ФИО", placeholder: "Введите ваше ФИО" },
   birthDate: {
     name: "Дата рождения",
-    placeholder: "Введите вашу дату рождения",
+    placeholder: "Введите вашу дату рождения в формате DD/MM/YYYY",
   },
   education: { name: "Образование", placeholder: "Введите ваше образование" },
   workPlace: { name: "Место работы", placeholder: "Введите ваше место работы" },
@@ -22,6 +22,10 @@ export const INPUT_INFO = {
   wantToLearn: {
     name: "Что хочешь изучать",
     placeholder: "Расскажите, что вы хотите изучать",
+  },
+  email: {
+    name: "Почта",
+    placeholder: "Введите вашу почту",
   },
   contacts: { name: "Контакты", placeholder: "Введите ваши контакты" },
 };
