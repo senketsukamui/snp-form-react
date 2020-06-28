@@ -7,12 +7,8 @@ const initialState = {
   education: "",
   workPlace: "",
   experience: "",
-  skills: "",
   aboutYou: "",
-  englishLevel: "",
-  wantToLearn: "",
   email: "",
-  contacts: "",
 };
 
 const { CHANGE_FORM_FIELD, SET_FORM_FIELDS } = ActionTypes;
@@ -25,6 +21,7 @@ export const formReducer = createReducer(initialState, {
 
   [SET_FORM_FIELDS]: (state, action) => {
     const { payload } = action;
+    if (!payload.newState) return;
     payload.newState.forEach((e) => {
       state[e.name] = e.value;
     });

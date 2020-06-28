@@ -10,24 +10,11 @@ export const INPUT_INFO = {
     name: "Опыт в разработке",
     placeholder: "Укажите ваш опыт в разработке",
   },
-  skills: {
-    name: "Технологии/умения",
-    placeholder: "Введите ваши технологии и умения",
-  },
   aboutYou: { name: "О себе", placeholder: "Расскажите о себе" },
-  englishLevel: {
-    name: "Уровень владения английским",
-    placeholder: "Укажите ваш уровень владения английским",
-  },
-  wantToLearn: {
-    name: "Что хочешь изучать",
-    placeholder: "Расскажите, что вы хотите изучать",
-  },
   email: {
     name: "Почта",
     placeholder: "Введите вашу почту",
   },
-  contacts: { name: "Контакты", placeholder: "Введите ваши контакты" },
 };
 
 export const SELECT_OPTIONS = [

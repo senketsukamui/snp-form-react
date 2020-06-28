@@ -26,12 +26,8 @@ const Form = () => {
       { value: "", name: "education", type: INPUT_TYPES.TEXT },
       { value: "", name: "workPlace", type: INPUT_TYPES.TEXT },
       { value: "", name: "experience", type: INPUT_TYPES.SELECT },
-      { value: "", name: "skills", type: INPUT_TYPES.TEXT },
       { value: "", name: "aboutYou", type: INPUT_TYPES.TEXT },
-      { value: "", name: "englishLevel", type: INPUT_TYPES.TEXT },
-      { value: "", name: "wantToLearn", type: INPUT_TYPES.TEXT },
       { value: "", name: "email", type: INPUT_TYPES.EMAIL },
-      { value: "", name: "contacts", type: INPUT_TYPES.TEXT },
     ]
   );
 
@@ -53,16 +49,25 @@ const Form = () => {
 
   const renderedInputs = inputState.map((e, index) => (
     <div className={styles.form_field}>
-      <p className={styles.input_title}>{INPUT_INFO[e.name].name}*</p>
       <Input
         type={e.type}
         className={styles.input}
         onChange={handleInputChange}
-        placeholder={INPUT_INFO[e.name].placeholder}
         value={e.value}
         field={e.name}
         data-id={index}
+        id={index}
       />
+      <label
+        className={
+          e.type === INPUT_TYPES.SELECT
+            ? styles.select_label
+            : styles.input_label
+        }
+        for={index}
+      >
+        {INPUT_INFO[e.name].name}*
+      </label>
     </div>
   ));
 

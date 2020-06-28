@@ -11,12 +11,8 @@ const Document = () => {
     education,
     workPlace,
     experience,
-    skills,
     aboutYou,
-    englishLevel,
-    wantToLearn,
     email,
-    contacts,
   } = formField;
 
   return (
@@ -30,14 +26,8 @@ const Document = () => {
       <div className={styles.form_field}>Образование: {education} </div>
       <div className={styles.form_field}>Моё место работы: {workPlace} </div>
       <div className={styles.form_field}>Опыт в разработке: {experience}</div>
-      <div className={styles.form_field}>Мои умения: {skills}</div>
-      <div className={styles.form_field}>Обо мне:{aboutYou}</div>
-      <div className={styles.form_field}>
-        Мой уровень владения английским: {englishLevel}
-      </div>
-      <div className={styles.form_field}>Хочу изучать: {wantToLearn}</div>
       <div className={styles.form_field}>Моя почта: {email}</div>
-      <div className={styles.form_field}>Мои контакты: {contacts}</div>
+      <div className={styles.form_field}>Обо мне:{aboutYou}</div>
     </div>
   );
 };
