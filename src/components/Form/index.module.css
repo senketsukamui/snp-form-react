@@ -18,12 +18,10 @@
   font-size: 0.9rem;
 }
 
-.input {
-  background-color: #ffffff;
-  width: 100%;
-  height: 20px;
-  font-size: 1.2rem;
-  font-size: "gotham-pro";
-  padding-top: 0.7rem;
-  background-color: red;
+.form_fields {
+  padding-bottom: 2rem;
+}
+
+.required {
+  padding-bottom: 2rem;
 }

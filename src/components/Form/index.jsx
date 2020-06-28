@@ -52,8 +52,8 @@ const Form = () => {
   );
 
   const renderedInputs = inputState.map((e, index) => (
-    <>
-      <p className={styles.input_title}>{INPUT_INFO[e.name].name}</p>
+    <div className={styles.form_field}>
+      <p className={styles.input_title}>{INPUT_INFO[e.name].name}*</p>
       <Input
         type={e.type}
         className={styles.input}
@@ -63,7 +63,7 @@ const Form = () => {
         field={e.name}
         data-id={index}
       />
-    </>
+    </div>
   ));
 
   return (
@@ -73,7 +73,8 @@ const Form = () => {
         Пожалуйста, заполни как можно подробнее данную заявку. Если у тебя есть
         готовое резюме, укажи на него ссылку.
       </p>
-      {renderedInputs}
+      <div className={styles.form_fields}>{renderedInputs}</div>
+      <div className={styles.required}>* - эти поля обязательные</div>
     </form>
   );
 };
