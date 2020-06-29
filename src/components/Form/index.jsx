@@ -19,15 +19,15 @@ const Form = () => {
     getLocalStorageState() || [
       {
         value: "",
-        type: INPUT_TYPES.NAME_INPUT,
+        type: INPUT_TYPES.TEXT,
         name: "name",
       },
-      { value: "", name: "birthDate", type: INPUT_TYPES.STRING_DATE },
+      { value: "", name: "birthDate", type: INPUT_TYPES.TEXT },
       { value: "", name: "education", type: INPUT_TYPES.TEXT },
       { value: "", name: "workPlace", type: INPUT_TYPES.TEXT },
       { value: "", name: "experience", type: INPUT_TYPES.SELECT },
       { value: "", name: "aboutYou", type: INPUT_TYPES.TEXT },
-      { value: "", name: "email", type: INPUT_TYPES.EMAIL },
+      { value: "", name: "email", type: INPUT_TYPES.TEXT },
     ]
   );
 
