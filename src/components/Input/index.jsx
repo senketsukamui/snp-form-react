@@ -6,7 +6,6 @@ import { validators } from "utils/validators";
 
 const Input = (props) => {
   if (props.type === INPUT_TYPES.TEXT) {
-    console.log(props.field);
     return (
       <>
         <input {...props} className={styles.input} required />
@@ -26,6 +25,19 @@ const Input = (props) => {
         <select {...props} className={styles.select} required>
           {renderedOptions}
         </select>
+      </>
+    );
+  } else if (props.type === INPUT_TYPES.TEXTAREA) {
+    return (
+      <>
+        <textarea {...props} className={styles.textarea} required></textarea>
+        {validators[props.field].validate(props.value) ? (
+          ""
+        ) : (
+          <div className={styles.error}>
+            {validators[props.field].getError()}
+          </div>
+        )}
       </>
     );
   }

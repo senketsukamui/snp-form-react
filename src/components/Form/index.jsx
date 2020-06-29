@@ -3,11 +3,13 @@ import styles from "./index.module.css";
 import Input from "components/Input";
 import { INPUT_INFO } from "utils/mock";
 import { INPUT_TYPES } from "utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeFormField, setFormFields } from "store/actions/form";
 
 const Form = () => {
   const dispatch = useDispatch();
+
+  const fields = useSelector((state) => state.form);
 
   const getLocalStorageState = React.useCallback(() => {
     const localStorageState = JSON.parse(localStorage.getItem("formFields"));
@@ -16,30 +18,26 @@ const Form = () => {
   }, [dispatch]);
 
   const [inputState, changeInputState] = React.useState(
-    getLocalStorageState() || [
-      {
-        value: "",
-        type: INPUT_TYPES.TEXT,
-        name: "name",
-      },
-      { value: "", name: "birthDate", type: INPUT_TYPES.TEXT },
-      { value: "", name: "education", type: INPUT_TYPES.TEXT },
-      { value: "", name: "workPlace", type: INPUT_TYPES.TEXT },
-      { value: "", name: "experience", type: INPUT_TYPES.SELECT },
-      { value: "", name: "aboutYou", type: INPUT_TYPES.TEXT },
-      { value: "", name: "email", type: INPUT_TYPES.TEXT },
-    ]
+    getLocalStorageState() || {
+      name: "",
+      birthDate: "",
+      education: "",
+      workPlace: "",
+      experience: "",
+      email: "",
+      aboutYou: "",
+    }
   );
-
+  console.log(inputState);
   const handleInputChange = React.useCallback(
     (e) => {
-      const stateCopy = [...inputState];
-      stateCopy[e.target.dataset.id].value = e.target.value;
+      const stateCopy = inputState;
+      stateCopy[e.target.dataset.field] = e.target.value;
       changeInputState(stateCopy);
       dispatch(
         changeFormField({
-          value: e.target.value,
-          field: stateCopy[e.target.dataset.id].name,
+          value: stateCopy[e.target.dataset.field],
+          field: e.target.dataset.field,
         })
       );
       localStorage.setItem("formFields", JSON.stringify(stateCopy));
@@ -47,16 +45,17 @@ const Form = () => {
     [dispatch, inputState]
   );
 
-  const renderedInputs = inputState.map((e, index) => (
-    <div className={styles.form_field}>
+  const renderedInputs = fields.map((e, index) => (
+    <div className={styles.form_field} key={index}>
       <Input
         type={e.type}
         className={styles.input}
         onChange={handleInputChange}
         value={e.value}
         field={e.name}
-        data-id={index}
+        data-field={e.name}
         id={index}
+        key={index}
       />
       <label
         className={
@@ -72,7 +71,7 @@ const Form = () => {
   ));
 
   return (
-    <form className={styles.form} action="novalidate">
+    <form className={styles.form} noValidate>
       <div className={styles.title}>Форма для стажировки</div>
       <p className={styles.description}>
         Пожалуйста, заполни как можно подробнее данную заявку. Если у тебя есть

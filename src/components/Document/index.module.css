@@ -2,10 +2,10 @@
   width: 60%;
   background: #ffffff;
   font-family: "vinnytsia";
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   -webkit-box-shadow: 0px 6px 16px 3px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 6px 16px 3px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 6px 16px 3px rgba(0, 0, 0, 0.75);
@@ -23,11 +23,16 @@
   justify-content: space-between;
 }
 
-.form_field {
+.form_field,
+.about_field {
   font-size: 1.5rem;
   padding-bottom: 1.2rem;
-  text-overflow: clip;
   display: flex;
+}
+
+.about_field {
+  padding-bottom: 7rem;
+  word-wrap: break-word;
 }
 
 .profile_image {
@@ -37,4 +42,22 @@
   height: 150px;
   background-size: 100% 100%;
   margin-bottom: 3rem;
+}
+
+.document_footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.snp_logo {
+  background: url("../../assets/images/snp-logo.jpg");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 75px;
+  background-size: 100% 100%;
+}
+
+.sign {
+  align-self: center;
+  font-size: 1.5rem;
 }

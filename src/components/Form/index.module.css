@@ -22,9 +22,9 @@
 
 .input_label {
   position: absolute;
-  top: 32px;
+  top: 31px;
   left: 20px;
-  transition: margin 0.2s
+  transition: margin 0.2s;
 }
 
 .form_fields {
