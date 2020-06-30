@@ -27,12 +27,13 @@
 .about_field {
   font-size: 1.5rem;
   padding-bottom: 1.2rem;
+  word-break: break-all;
   display: flex;
 }
 
 .about_field {
   padding-bottom: 7rem;
-  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .profile_image {
@@ -42,6 +43,7 @@
   height: 150px;
   background-size: 100% 100%;
   margin-bottom: 3rem;
+  align-self: center;
 }
 
 .document_footer {
@@ -60,4 +62,41 @@
 .sign {
   align-self: center;
   font-size: 1.5rem;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .document {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .document {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .form_field,
+  .about_field {
+    font-size: 1.2rem;
+  }
+
+  .sign {
+    font-size: 1.2rem;
+    ;
+  }
+
+  .snp_logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .profile_image {
+    height: 120px;
+    width: 120px;
+  }
 }

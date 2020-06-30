@@ -19,7 +19,9 @@ const Input = (props) => {
       </>
     );
   } else if (props.type === INPUT_TYPES.SELECT) {
-    const renderedOptions = SELECT_OPTIONS.map((e) => <option>{e}</option>);
+    const renderedOptions = SELECT_OPTIONS.map((e, index) => (
+      <option key={index}>{e}</option>
+    ));
     return (
       <>
         <select {...props} className={styles.select} required>

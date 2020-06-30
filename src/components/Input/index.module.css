@@ -29,3 +29,10 @@
 .textarea {
   height: auto;
 }
+
+.select {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: auto;
+}

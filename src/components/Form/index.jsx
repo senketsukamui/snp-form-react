@@ -28,7 +28,7 @@ const Form = () => {
       aboutYou: "",
     }
   );
-  console.log(inputState);
+
   const handleInputChange = React.useCallback(
     (e) => {
       const stateCopy = inputState;
@@ -45,30 +45,34 @@ const Form = () => {
     [dispatch, inputState]
   );
 
-  const renderedInputs = fields.map((e, index) => (
-    <div className={styles.form_field} key={index}>
-      <Input
-        type={e.type}
-        className={styles.input}
-        onChange={handleInputChange}
-        value={e.value}
-        field={e.name}
-        data-field={e.name}
-        id={index}
-        key={index}
-      />
-      <label
-        className={
-          e.type === INPUT_TYPES.SELECT
-            ? styles.select_label
-            : styles.input_label
-        }
-        for={index}
-      >
-        {INPUT_INFO[e.name].name}*
-      </label>
-    </div>
-  ));
+  const renderedInputs = React.useMemo(
+    () =>
+      fields.map((e, index) => (
+        <div className={styles.form_field} key={index}>
+          <Input
+            type={e.type}
+            className={styles.input}
+            onChange={handleInputChange}
+            value={e.value}
+            field={e.name}
+            data-field={e.name}
+            id={index}
+            key={index}
+          />
+          <label
+            className={
+              e.type === INPUT_TYPES.SELECT
+                ? styles.select_label
+                : styles.input_label
+            }
+            htmlFor={index}
+          >
+            {INPUT_INFO[e.name].name}*
+          </label>
+        </div>
+      )),
+    [fields]
+  );
 
   return (
     <form className={styles.form} noValidate>

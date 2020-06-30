@@ -27,6 +27,11 @@
   transition: margin 0.2s;
 }
 
+.select_label {
+  position: relative;
+  top: -65px;
+}
+
 .form_fields {
   padding-bottom: 1rem;
 }
@@ -42,4 +47,11 @@
   border-radius: 7px;
   white-space: initial;
   position: relative;
+}
+
+@media screen and (max-width: 1024px) {
+  .form {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
 }
