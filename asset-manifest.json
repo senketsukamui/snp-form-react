@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/snp-form-react/static/css/main.bf8bc455.chunk.css",
+    "main.js": "/snp-form-react/static/js/main.d5c17c6f.chunk.js",
+    "main.js.map": "/snp-form-react/static/js/main.d5c17c6f.chunk.js.map",
+    "runtime-main.js": "/snp-form-react/static/js/runtime-main.7ee44219.js",
+    "runtime-main.js.map": "/snp-form-react/static/js/runtime-main.7ee44219.js.map",
+    "static/js/2.13ab760e.chunk.js": "/snp-form-react/static/js/2.13ab760e.chunk.js",
+    "static/js/2.13ab760e.chunk.js.map": "/snp-form-react/static/js/2.13ab760e.chunk.js.map",
+    "index.html": "/snp-form-react/index.html",
+    "precache-manifest.4282685be73de1fa43b24001448cca3f.js": "/snp-form-react/precache-manifest.4282685be73de1fa43b24001448cca3f.js",
+    "service-worker.js": "/snp-form-react/service-worker.js",
+    "static/css/main.bf8bc455.chunk.css.map": "/snp-form-react/static/css/main.bf8bc455.chunk.css.map",
+    "static/js/2.13ab760e.chunk.js.LICENSE.txt": "/snp-form-react/static/js/2.13ab760e.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/snp-form-react/static/media/Vinnytsia.353166d2.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7ee44219.js",
+    "static/js/2.13ab760e.chunk.js",
+    "static/css/main.bf8bc455.chunk.css",
+    "static/js/main.d5c17c6f.chunk.js"
+  ]
+}
