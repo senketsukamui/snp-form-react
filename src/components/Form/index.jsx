@@ -73,7 +73,7 @@ const Form = () => {
           </label>
         </div>
       )),
-    [fields]
+    [fields, fieldsKeys, handleInputChange]
   );
 
   return (
@@ -89,4 +89,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default React.memo(Form);

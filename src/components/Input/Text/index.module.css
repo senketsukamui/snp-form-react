@@ -1,6 +1,4 @@
-.input,
-.select,
-.textarea {
+.input {
   width: 100%;
   background-color: #f6f6f6;
   font-size: 0.9rem;
@@ -13,26 +11,13 @@
   resize: none;
 }
 
-.error {
-  padding-top: 5px;
-  color: red;
-}
-
 .input:valid~label,
-.input:focus~label,
-.textarea:focus~label,
-.textarea:valid~label {
+.input:focus~label {
   margin-top: -25px;
   font-size: 0.9rem;
 }
 
-.textarea {
-  height: auto;
-}
-
-.select {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  height: auto;
+.error {
+  padding-top: 5px;
+  color: red;
 }

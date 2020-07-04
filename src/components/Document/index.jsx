@@ -7,7 +7,6 @@ const Document = () => {
 
   const documentNames = React.useMemo(() => {
     return Object.keys(formFields).reduce((acc, value) => {
-      console.log(acc);
       acc[value] = formFields[value].value;
       return acc;
     }, {});
