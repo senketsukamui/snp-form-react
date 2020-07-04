@@ -11,6 +11,8 @@ const Form = () => {
 
   const fields = useSelector((state) => state.form);
 
+  const fieldsKeys = Object.keys(fields);
+
   const getLocalStorageState = React.useCallback(() => {
     const localStorageState = JSON.parse(localStorage.getItem("formFields"));
     dispatch(setFormFields({ newState: localStorageState }));
@@ -47,27 +49,27 @@ const Form = () => {
 
   const renderedInputs = React.useMemo(
     () =>
-      fields.map((e, index) => (
+      fieldsKeys.map((e, index) => (
         <div className={styles.form_field} key={index}>
           <Input
-            type={e.type}
+            type={fields[e].type}
             className={styles.input}
             onChange={handleInputChange}
-            value={e.value}
-            field={e.name}
-            data-field={e.name}
+            value={fields[e].value}
+            field={fields[e].name}
+            data-field={fields[e].name}
             id={index}
             key={index}
           />
           <label
             className={
-              e.type === INPUT_TYPES.SELECT
+              fields[e].type === INPUT_TYPES.SELECT
                 ? styles.select_label
                 : styles.input_label
             }
             htmlFor={index}
           >
-            {INPUT_INFO[e.name].name}*
+            {INPUT_INFO[e].name}*
           </label>
         </div>
       )),

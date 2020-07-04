@@ -5,14 +5,13 @@ import { useSelector } from "react-redux";
 const Document = () => {
   const formFields = useSelector((state) => state.form);
 
-  const documentNames = React.useMemo(
-    () =>
-      formFields.reduce((acc, value) => {
-        acc[value.name] = value.value;
-        return acc;
-      }, {}),
-    [formFields]
-  );
+  const documentNames = React.useMemo(() => {
+    return Object.keys(formFields).reduce((acc, value) => {
+      console.log(acc);
+      acc[value] = formFields[value].value;
+      return acc;
+    }, {});
+  }, [formFields]);
 
   const {
     name,
@@ -23,6 +22,7 @@ const Document = () => {
     email,
     aboutYou,
   } = documentNames;
+
   return (
     <div className={styles.document}>
       <div className={styles.title_block}>
