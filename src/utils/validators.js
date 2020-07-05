@@ -3,7 +3,7 @@ import { dateRegex, emailRegex, VALIDATION_ERRORS } from "./constants";
 export const validators = {
   email: {
     validate: (value) => {
-      return !value.length || value.match(emailRegex);
+      return !value.length || emailRegex.test(value);
     },
     getError: () => {
       return VALIDATION_ERRORS.EMAIL_ERROR;
@@ -11,7 +11,7 @@ export const validators = {
   },
   birthDate: {
     validate: (value) => {
-      return !value.length || value.match(dateRegex);
+      return !value.length || dateRegex.test(value);
     },
     getError: () => {
       return VALIDATION_ERRORS.DATE_ERROR;
