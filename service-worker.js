@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/snp-form-react/precache-manifest.4282685be73de1fa43b24001448cca3f.js"
+  "/snp-form-react/precache-manifest.4b096b4f2abf1d9602af3238f36b65f3.js"
 );
 
 self.addEventListener('message', (event) => {
