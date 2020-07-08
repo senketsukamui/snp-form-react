@@ -13,38 +13,16 @@ const Form = () => {
 
   const fieldsKeys = Object.keys(fields);
 
-  const getLocalStorageState = React.useCallback(() => {
-    const localStorageState = JSON.parse(localStorage.getItem("formFields"));
-    dispatch(setFormFields({ newState: localStorageState }));
-    return localStorageState;
-  }, [dispatch]);
-
-  const [inputState, changeInputState] = React.useState(
-    getLocalStorageState() || {
-      name: "",
-      birthDate: "",
-      education: "",
-      workPlace: "",
-      experience: "",
-      email: "",
-      aboutYou: "",
-    }
-  );
-
   const handleInputChange = React.useCallback(
     (e) => {
-      const stateCopy = inputState;
-      stateCopy[e.target.dataset.field] = e.target.value;
-      changeInputState(stateCopy);
       dispatch(
         changeFormField({
-          value: stateCopy[e.target.dataset.field],
+          value: e.target.value,
           field: e.target.dataset.field,
         })
       );
-      localStorage.setItem("formFields", JSON.stringify(stateCopy));
     },
-    [dispatch, inputState]
+    [dispatch]
   );
 
   const renderedInputs = React.useMemo(

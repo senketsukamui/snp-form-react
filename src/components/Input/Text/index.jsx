@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "./index.module.css";
+import { useSelector } from "react-redux";
 
 import { validators } from "utils/validators";
 
 const Text = (props) => {
-  console.log(props.value);
-  const [isError, setErrorState] = React.useState(
-    !validators[props.field].validate(props.value)
+  const [isError, setErrorState] = React.useState(false);
+  const errorMessage = useSelector(
+    (state) => state.form[props.field].errorMessage
   );
   const textBlurHandler = () => {
     if (!validators[props.field].validate(props.value)) {
@@ -23,9 +24,7 @@ const Text = (props) => {
         required
         onBlur={textBlurHandler}
       />
-      {isError && (
-        <div className={styles.error}>{validators[props.field].getError()}</div>
-      )}
+      {isError && <div className={styles.error}>{errorMessage}</div>}
     </>
   );
 };
